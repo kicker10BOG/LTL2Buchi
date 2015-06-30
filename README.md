@@ -3,7 +3,7 @@
 This code is not my own. It was written by NASA. 
 I found it in another [project on GitHub](https://github.com/hammacher/ccs). 
 
-I added three methods to the end of the fov.nasa.ltl.trans.Formula class:
+I added three methods to the end of the gov.nasa.ltl.trans.Formula class:
 * public static String[] getPredicates(String)
 * public static String[] getPredicates(Formula)
 * public String[] getPredicates()
