@@ -24,9 +24,13 @@
 // Modified to accept && and || by Roby Joehanes 15 Jul 2002
 package gov.nasa.ltl.trans;
 
+import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -1043,4 +1047,30 @@ private boolean match (Formula rule) {
       }
     }
   }
+  
+  /* 
+   * Everything after this are additions by Jason L. Bogle 
+   */
+	public static String[] getPredicates(String formula) {
+		List<String> predicates = new ArrayList<String>();
+		Pattern pattern = Pattern.compile("([a-z][a-zA-Z0-9]*)");
+		Matcher matcher = pattern.matcher(formula);
+		while (matcher.find()) {
+			if (!matcher.group().equals("true") && !matcher.group().equals("false")) {
+				if (!predicates.contains(matcher.group())) {
+					predicates.add(matcher.group());
+					//System.out.println(" ->"+matcher.group());
+				}
+			}
+		}
+		return (String[]) predicates.toArray(new String[predicates.size()]);
+	}
+	
+	public static String[] getPredicates(Formula formula) {
+		return getPredicates(formula.getName());
+	}
+	
+	public String[] getPredicates() {
+		return getPredicates(this.getName());
+	}
 }
