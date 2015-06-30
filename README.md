@@ -4,9 +4,9 @@ This code is not my own. It was written by NASA.
 I found it in another [project on GitHub](https://github.com/hammacher/ccs). 
 
 I added three methods to the end of the fov.nasa.ltl.trans.Formula class:
-1. public static String[] getPredicates(String)
-2. public static String[] getPredicates(Formula)
-3. public String[] getPredicates()
+* public static String[] getPredicates(String)
+* public static String[] getPredicates(Formula)
+* public String[] getPredicates()
 
 The license note found in the LTL2Buchi class file is reproduced here:
 > 
